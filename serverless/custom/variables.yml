@@ -1,0 +1,13 @@
+NODE_ENV: ${self:provider.stage}
+
+branch:
+  dev: dev
+  stg: stg
+  prd: main
+
+serviceNamePrefix: ${self:service}
+serviceIdentifier: ${self:custom.serviceNamePrefix}-${self:provider.stage}
+ssmPrefix: /${self:custom.serviceNamePrefix}
+
+tableName: ${self:custom.serviceIdentifier}-table
+tableTestName: ${self:custom.serviceIdentifier}-table-test

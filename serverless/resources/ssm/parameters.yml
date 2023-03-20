@@ -1,0 +1,37 @@
+Resources:
+  TestParam:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: ${self:custom.ssmPrefix}/TEST_PARAM
+      Type: String
+      Value: test
+  TableName:  
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: ${self:custom.ssmPrefix}/TABLE_NAME
+      Type: String
+      Value: ${self:custom.tableName}
+  TableARN: 
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: ${self:custom.ssmPrefix}/TABLE_ARN
+      Type: String
+      Value: 
+        Fn::GetAtt:
+          - Table
+          - Arn
+  TableTestName:  
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: ${self:custom.ssmPrefix}/TABLE_TEST_NAME
+      Type: String
+      Value: ${self:custom.tableTestName}
+  TableTestARN: 
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: ${self:custom.ssmPrefix}/TABLE_TEST_ARN
+      Type: String
+      Value: 
+        Fn::GetAtt:
+          - TableTest
+          - Arn
